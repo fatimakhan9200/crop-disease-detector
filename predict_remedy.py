@@ -1,5 +1,4 @@
 # predict_remedy.py
-import gdown
 import numpy as np
 import cv2
 import tensorflow as tf
@@ -11,10 +10,13 @@ import os
 # -----------------------------
 model_path = os.path.join("model", "crop_disease_model1.h5")
 
+def predict_and_remedy(img_path):
+    return [
+        ("Deployment Working", 100, "Model temporarily disabled")
+    ]
+
 # Download model if not present
-if not os.path.exists(model_path):
-    url = "https://drive.google.com/uc?id=1cEE2wqwJiJkY_sIl_GOKyl9TqQk9Rp-Q"
-    gdown.download(url, model_path, quiet=False)
+
 
 # Load model
 model = tf.keras.models.load_model(model_path)
